@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">lab02</string>
+    <string name="number_one">Первое число:</string>
+    <string name="number_two">Второе число:</string>
+    <string name="plus">Сложение</string>
+    <string name="minus">Вычитание</string>
+    <string name="multiplication">Умножение</string>
+    <string name="division">Деление</string>
+    <string name="result">Результат</string>
+</resources>
