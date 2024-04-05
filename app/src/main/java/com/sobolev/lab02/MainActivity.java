@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-
     TextView tOne, tTwo, tResult;
     Button btplus, btminus, btmulti, btdiv;
 
@@ -26,17 +25,13 @@ public class MainActivity extends AppCompatActivity {
         btminus = findViewById(R.id.btMinus);
         btmulti = findViewById(R.id.btMulti);
         btdiv = findViewById(R.id.btDiv);
-
-
     }
 
     public void calculate(View v)
     {
         float a,b;
-
         String sa = tOne.getText().toString();
         String sb = tTwo.getText().toString();
-
         try
         {
             a = Float.parseFloat(sa);
@@ -44,13 +39,37 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (Exception e1)
         {
-            tResult.setText("Одно/оба числа пустые");
+            tResult.setText("Одно/оба поля пустые");
             return;
         }
 
-        if (v == btplus) {tResult.setText(String.valueOf(a+b));}
-        if (v == btminus) {tResult.setText(String.valueOf(a-b));}
-        if (v == btmulti) {tResult.setText(String.valueOf(a*b));}
+        if (v == btplus)
+        {
+            if (a > 999999999 || b > 999999999 || a < -999999999 || b < -999999999)
+            {
+                tResult.setText("Слишком большое значение");
+                return;
+            }
+            tResult.setText(String.valueOf(a+b));
+        }
+        if (v == btminus)
+        {
+            if (a > 999999999 || b > 999999999 || a < -999999999 || b < -999999999)
+            {
+                tResult.setText("Слишком большое значение");
+                return;
+            }
+            tResult.setText(String.valueOf(a-b));
+        }
+        if (v == btmulti)
+        {
+            if (a > 999999999 || b > 999999999 || a < -999999999 || b < -999999999)
+            {
+                tResult.setText("Слишком большое значение");
+                return;
+            }
+            tResult.setText(String.valueOf(a*b));
+        }
         if (v == btdiv)
         {
             if (b > -0.0000000001f && b < 0.0000000001f)
@@ -59,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
             else {tResult.setText(String.valueOf(a / b));}
-
         }
     }
 }
